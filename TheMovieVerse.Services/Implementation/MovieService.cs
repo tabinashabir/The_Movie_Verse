@@ -47,10 +47,10 @@ namespace TheMovieVerse.Services.Implementation
             var moviesModel=await _movieDbContext.Movies
                 .Include(x=>x.MovieActors)
                 .ToListAsync();
-            foreach (var actorId in moviesModel.Select(x=>x.MovieActors).Select(y=>y.ActorId))
-            {
-                _movieDbContext.Actors.Where(x => x.ActorId == actorId);
-            }
+            //foreach (var actorId in moviesModel.Select(x=>x.MovieActors).Select(y=>y.ActorId))
+            //{
+            //    _movieDbContext.Actors.Where(x => x.ActorId == actorId);
+            //}
             
 
             var reqList = _mapper.Map<List<MovieView>>(moviesModel);
