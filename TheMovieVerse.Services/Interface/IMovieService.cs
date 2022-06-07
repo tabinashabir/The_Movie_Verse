@@ -11,11 +11,10 @@ namespace TheMovieVerse.Services.Interface
     {
         public Task<Movie> GetMovieById(long movieId);
         public Task<List<MovieView>> GetAll();
+        public Task<List<MovieView>> GetUpcomingMovies();
         public Task<List<MovieTitleView>> GetMovieByLanguage(string MovieLanguage);
         public Task<List<Movie>> GetMovieByGenre(string MovieGenre);
         public Task<Movie> GetMovieByName(string MovieTitle);
-        
-
         public Task<long> PostMovie (MovieView movie);
         public Task<long> PutMovie(EditMovieView movie);
         public Task<long> DeleteMovie(long id);   

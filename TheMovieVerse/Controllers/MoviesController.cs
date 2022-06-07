@@ -29,7 +29,7 @@ namespace TheMovieVerse.Controllers
         }
 
 
-        // GET: api/Get All Movies
+        
         [HttpGet("GetAllMovies")]
         public async Task<ActionResult<List<MovieView>>> GetMovies()
         {
@@ -37,6 +37,14 @@ namespace TheMovieVerse.Controllers
             return await _movieService.GetAll();
             
         }
+
+
+        [HttpGet("GetUpcomingMovies")]
+        public async Task<ActionResult<List<MovieView>>> GetUpcomingMovies()
+        {
+            return await _movieService.GetUpcomingMovies();
+        }
+
 
         // GET: api/Movies/MoviesLanguage
         [HttpGet("GetMovieByLanguage/{MovieLanguage}")]
@@ -57,7 +65,7 @@ namespace TheMovieVerse.Controllers
             return await _movieService.GetMovieByName(MovieTitle);
         }
 
-        // GET: api/Movies/5
+
         [HttpGet("GetMovieById{id}")]
         public async Task<ActionResult<Movie>> GetMovie(long id)
         {
@@ -66,8 +74,6 @@ namespace TheMovieVerse.Controllers
         }
         
         // PUT: api/Movies/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("UpdateMovieUsingId{id}")]
         public async Task<long> PutMovie(EditMovieView movie)
         {
